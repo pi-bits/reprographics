@@ -1,0 +1,11 @@
+.form-group.required .control-label:after { 
+    content:"*";
+    color:red;
+ }
+ .form-group.required .form-check-label:after { 
+    content:"*";
+    color:red;
+ }
+ .errorText{
+    color:red
+    }
