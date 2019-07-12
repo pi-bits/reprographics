@@ -96,7 +96,7 @@ include 'upload.php';
                             <div class="col-md-2"></div>
                             <div class="col-md-6">
                                 <label for="Dates" class="control-label">Date Required:</label>
-                                <input class="form-control form-control-sm" type="date" id="Dates" value='<?php echo isset($_POST["Dates"]) ? $_POST["Dates"] : ''; ?>' onkeydown="return false" name="Dates" min="<?php echo date('Y-m-d') ?>" data-date-format="DD MMMM YYYY" >
+                                <input class="form-control form-control-sm" type="date" id="Dates" value='<?php echo isset($_POST["Dates"]) ? $_POST["Dates"] : ''; ?>' onkeydown="return false" name="Dates" min="<?php echo date('Y-m-d') ?>" data-date-format="DD MMMM YYYY">
                                 <span class="errorText"><?php echo $printDateError; ?></span>
 
                             </div>
@@ -290,13 +290,11 @@ include 'upload.php';
                             <div class="col-md-2"></div>
                             <div class="col-md-9">
                                 <label for="uploadDocument" class="control-label">Upload Document:</label>
-                                <input type="file" name="uploadDocument" class="form-control-file border">
+                                <input type="file" name="uploadDocument[]" class="form-control-file border" id="uploadDocument"  multiple>
                                 <div>
                                     <span class="errorText"><?php echo  $uploadDocumentError; ?></span>
                                 </div>
-
                             </div>
-
                         </div>
 
 
