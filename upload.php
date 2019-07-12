@@ -106,7 +106,7 @@ try {
          $errors = array();
 
          if (!empty($_FILES['uploadDocument']['name'][0])) {
-
+            // print_r($_FILES['uploadDocument']);
             $files = $_FILES['uploadDocument'];
             $uploaded = array();
             $failed = array();
@@ -202,15 +202,6 @@ try {
             $mail->setFrom(getenv('FROM_EMAIL'), 'Mailer');
             $mail->addAddress(getenv('TO_EMAIL'), getenv('TO_NAME'));     // Add a recipient
 
-            //loop thought $uploaded files and add to attachment with the original file name;
-            foreach ($files['name'] as $position => $fileName) {
-               $file_to_attach = $uploaded[$position];
-               $mail->AddAttachment($file_to_attach, $fileName);
-            }
-
-            // $file_to_attach = "images/" . $file_name;
-            // $mail->AddAttachment($file_to_attach, $file_name);
-            // Content
             $mail->isHTML(true);                                  // Set email format to HTML
             $mail->Subject = 'Reprographic Requirement for : ' . $firstName;
             $mail->Body    = '<html>

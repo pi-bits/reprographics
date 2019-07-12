@@ -26,3 +26,9 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# exclude everything
+uploads/*
+
+# exception to the rule
+!uploads/.gitkeep 
