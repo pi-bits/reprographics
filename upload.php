@@ -26,6 +26,7 @@ try {
    $urgentlyRequiredError = "";
    $printCopiesError = "";
    $printDateError = "";
+   $maxNumberOfFiles=10;
 
 
    if (isset($_POST["submit"])) {
@@ -93,6 +94,12 @@ try {
          $error = TRUE;
       }
 
+
+      if (!empty($_FILES['uploadDocument']['name'][0] && count($_FILES['uploadDocument']['name'])>$maxNumberOfFiles)) {
+         $uploadDocumentError = "Cannot upload more than {$maxNumberOfFiles} files at one time. Please try again.";
+         $error = TRUE;
+      }
+
       if (empty($_POST['urgentlyRequired'])) {
          $urgentlyRequiredError = "Required.";
          $error = TRUE;
@@ -122,7 +129,7 @@ try {
                 */
                $file_ext = strtolower(end(explode('.', $fileName)));
 
-               $extensions = array("jpeg", "jpg", "png", "docx", "pdf", "xlsx");
+               $extensions = array("jpeg", "jpg", "png", "docx", "pdf", "xlsx","doc");
 
                if (!in_array($file_ext, $extensions) === false) {
                   if ($file_error === 0) {
